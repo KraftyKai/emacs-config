@@ -16,8 +16,12 @@
 ;;; Code:
 (add-to-list 'load-path
 	     "/home/kai/.emacs.d/elpa/ecb-20160101.933/")
-(custom-set-variables '(ecb-options-version "2.50"))
-(custom-set-variables '(ecb-windows-width 50))
+(defvar start-dir (getenv "PWD"))
+(defvar start-dir-name (car (last (split-string start-dir "/"))))
+(custom-set-variables
+ '(ecb-options-version "2.50")
+ '(ecb-source-path (list (list start-dir start-dir-name)))
+ '(ecb-windows-width 50))
 (require 'ecb)
 (ecb-activate)
 
