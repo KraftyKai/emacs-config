@@ -1,7 +1,7 @@
 ;;; custom-kai --- My preferred custom emacs config
 ;;; Commentary:
 
-(setq package-list '(flycheck flycheck-pyflakes ecb))
+(setq package-list '(flycheck flycheck-pyflakes ecb fill-column-indicator))
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
@@ -17,8 +17,17 @@
 (add-to-list 'load-path
 	     "/home/kai/.emacs.d/elpa/ecb-20160101.933/")
 (custom-set-variables '(ecb-options-version "2.50"))
+(custom-set-variables '(ecb-windows-width 50))
 (require 'ecb)
 (ecb-activate)
+
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "purple")
+(setq-default fci-rule-column 80)
+(setq-default fci-rule-use-dashes nil)
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
@@ -45,5 +54,7 @@
   (save-excursion
     (hs-show-block)))
 
-(add-hook 'hs-minor-mode-hook '(lambda () (hs-hide-all))) 
+(add-hook 'hs-minor-mode-hook '(lambda () (hs-hide-all)))
+
+
 ;;; .emacs ends here
