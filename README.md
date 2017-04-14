@@ -1,5 +1,9 @@
 Basic emacs configurations for software developments.  Installing the `.emacs` and `.pylintrc` files in a user's home directory should automatically install required packages and load the emacs environment as intended on next load.
 
+## Example
+<img width="1314" alt="screen shot 2017-04-14 at 11 52 06 am" src="https://cloud.githubusercontent.com/assets/6238872/25049742/e9c42db2-2108-11e7-88bb-d11808ffcea6.png">
+
+
 ## Notes
 * I tend to use 2 space indent, even for python (in absolute defiance of pep8!).  If using 2 space indents for python the included `.pylintrc` file should be included in the home directory.  If you're a total conformist then do not include `.pylintrc` and also edit `.emacs` to suit your indentive conformity needs.
 * You need to edit the `.emacs` file to be updated with your home location in order for `ecb` to work properly.  Additionally you may need to find the location of `ecb.el` if you notice that ecb is not working.  (This is roughly in code line 17)
