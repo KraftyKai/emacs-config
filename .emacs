@@ -20,7 +20,7 @@
 
 ;;; Code:
 (add-to-list 'load-path
-	     "/home/kai/.emacs.d/elpa/ecb-20160101.933/")
+	     "/home/ubuntu/.emacs.d/elpa/ecb-20160101.933/")
 (defvar start-dir (getenv "PWD"))
 (defvar start-dir-name (car (last (split-string start-dir "/"))))
 (custom-set-variables
@@ -60,5 +60,14 @@
 
 (add-hook 'hs-minor-mode-hook '(lambda () (hs-hide-all)))
 
-
+(defun set-flychecker-executables ()
+  "Configure virtualenv for flake8 and lint."
+  (when (get-current-buffer-flake8)
+    (flycheck-set-checker-executable (quote python-flake8)
+                                     (get-current-buffer-flake8)))
+  (when (get-current-buffer-pylint)
+    (flycheck-set-checker-executable (quote python-pylint)
+                                     (get-current-buffer-pylint))))
+(add-hook 'flycheck-before-syntax-check-hook
+          #'set-flychecker-executables 'local)
 ;;; .emacs ends here
