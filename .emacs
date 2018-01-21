@@ -24,9 +24,18 @@
 (defvar start-dir (getenv "PWD"))
 (defvar start-dir-name (car (last (split-string start-dir "/"))))
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.50")
  '(ecb-source-path (list (list start-dir start-dir-name)))
- '(ecb-windows-width 50))
+ '(ecb-windows-width 50)
+ '(package-selected-packages
+   (quote
+    (exec-path-from-shell python-pylint flycheck-pyflakes fill-column-indicator ecb)))
+ '(python-guess-indent nil)
+ '(python-indent-offset 2))
 (require 'ecb)
 (setq stack-trace-on-error t)
 (ecb-activate)
@@ -39,12 +48,12 @@
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(global-flycheck-mode)
+(package-install 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
 
 
-(custom-set-variables
- '(python-guess-indent nil)
-  '(python-indent-offset 2))
+
 
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook '(lambda ()
@@ -60,14 +69,10 @@
 
 (add-hook 'hs-minor-mode-hook '(lambda () (hs-hide-all)))
 
-(defun set-flychecker-executables ()
-  "Configure virtualenv for flake8 and lint."
-  (when (get-current-buffer-flake8)
-    (flycheck-set-checker-executable (quote python-flake8)
-                                     (get-current-buffer-flake8)))
-  (when (get-current-buffer-pylint)
-    (flycheck-set-checker-executable (quote python-pylint)
-                                     (get-current-buffer-pylint))))
-(add-hook 'flycheck-before-syntax-check-hook
-          #'set-flychecker-executables 'local)
 ;;; .emacs ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
