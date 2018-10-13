@@ -1,0 +1,4 @@
+[pep8]
+ignore = E111,E114,C901,E121
+[flake8]
+ignore = E111, E114, C901, E121
