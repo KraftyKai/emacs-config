@@ -30,3 +30,10 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 * `C-c @ C-M-h` - Hide all top-level blocks (hs-hide-all)
 * `C-c @ C-M-s` - Show all blocks in the buffer (hs-show-all)
 * `C-c @ C-l` - Hide all blocks n levels below this block (hs-hide-level)
+
+## Golang specific details
+* [go-mode](https://github.com/dominikh/go-mode.el) is included, see link for instructions
+* Seems error handling works pretty well so I have, at this time, not included [goflymake](https://github.com/dougm/goflymake)  or any other related exteznsions
+* I did include [eldoc](https://github.com/syohex/emacs-go-eldoc) for go as it seems really useful.
+** This does require installing gocode with `% go get -u github.com/nsf/gocode`
+*** It's also worth noting that gocode isn't supported anymore.  There is an alternative but for what I need it for, for now, it works.  So ::shrug::...

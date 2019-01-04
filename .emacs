@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc))
 
 (package-initialize)
 (unless package-archive-contents
@@ -47,6 +47,9 @@
 (setq-default fci-rule-use-dashes nil)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 
+;; Go configurations...
+(require 'go-eldoc) ;; Don't need to require, if you install by package.el
+(add-hook 'go-mode-hook 'go-eldoc-setup)
 
 (global-flycheck-mode)
 (package-install 'exec-path-from-shell)
