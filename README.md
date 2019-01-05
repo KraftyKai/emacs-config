@@ -35,5 +35,7 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 * [go-mode](https://github.com/dominikh/go-mode.el) is included, see link for instructions
 * Seems error handling works pretty well so I have, at this time, not included [goflymake](https://github.com/dougm/goflymake)  or any other related exteznsions
 * I did include [eldoc](https://github.com/syohex/emacs-go-eldoc) for go as it seems really useful.
-** This does require installing gocode with `% go get -u github.com/nsf/gocode`
-*** It's also worth noting that gocode isn't supported anymore.  There is an alternative but for what I need it for, for now, it works.  So ::shrug::...
+    * This does require installing gocode with `% go get -u github.com/nsf/gocode`
+        * It's also worth noting that gocode isn't supported anymore.  There is an alternative but for what I need it for, for now, it works.  So ::shrug::...
+* I've also added support for godoc (autocomplete).  You can disable this by removing the lines related to go-autcomplete.
+    * See [the docs](https://github.com/stamblerre/gocode) for details and updates in case things break.

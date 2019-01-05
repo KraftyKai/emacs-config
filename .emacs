@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete))
 
 (package-initialize)
 (unless package-archive-contents
@@ -50,6 +50,12 @@
 ;; Go configurations...
 (require 'go-eldoc) ;; Don't need to require, if you install by package.el
 (add-hook 'go-mode-hook 'go-eldoc-setup)
+(add-to-list 'load-path
+	     "/home/ubuntu/.emacs.extra/")
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
 
 (global-flycheck-mode)
 (package-install 'exec-path-from-shell)
