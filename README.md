@@ -38,4 +38,6 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
     * This does require installing gocode with `% go get -u github.com/nsf/gocode`
         * It's also worth noting that gocode isn't supported anymore.  There is an alternative but for what I need it for, for now, it works.  So ::shrug::...
 * I've also added support for godoc (autocomplete).  You can disable this by removing the lines related to go-autcomplete.
+    * Install gocode with `go get -u github.com/stamblerre/gocode`.
+        * This is a newer version (forked) of the gocode you installed above.  Right now I have both installed in my environment and it works fine.  Maybe the other can be removed.  It's worth a try.  This is the one you definitely want to keep.
     * See [the docs](https://github.com/stamblerre/gocode) for details and updates in case things break.
