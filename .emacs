@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete))
 
 (package-initialize)
 (unless package-archive-contents
@@ -32,8 +32,7 @@
  '(ecb-source-path (list (list start-dir start-dir-name)))
  '(ecb-windows-width 50)
  '(package-selected-packages
-   (quote
-    (exec-path-from-shell python-pylint flycheck-pyflakes fill-column-indicator ecb)))
+   '(exec-path-from-shell python-pylint flycheck-pyflakes fill-column-indicator ecb))
  '(python-guess-indent nil)
  '(python-indent-offset 2))
 (require 'ecb)
