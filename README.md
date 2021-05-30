@@ -41,3 +41,13 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
     * Install gocode with `go get -u github.com/stamblerre/gocode`.
         * This is a newer version (forked) of the gocode you installed above.  Right now I have both installed in my environment and it works fine.  Maybe the other can be removed.  It's worth a try.  This is the one you definitely want to keep.
     * See [the docs](https://github.com/stamblerre/gocode) for details and updates in case things break.
+
+## OSX Specific Notes
+Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protect you from yourself.  You will need to be aware of a few things to get this working with OSX emacs.
+* OSX Pre-installed Emacs is an ancient version 22.2.  This will not do (or even work... it actually will not work).
+* OSX Does not support a version of Emacs newer than 22.2 for unknown reasons, but we assume it's related to CopyLeft license used in newer version of Emacs.
+* To work around this install Emacs with homebrew!
+    * [Installing Homebrew](https://brew.sh/)
+    * Install Emacs with `brew install emacs`
+    * Don't forget to `brew link emacs`!
+        * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
