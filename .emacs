@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode))
 
 (package-initialize)
 (unless package-archive-contents
@@ -45,6 +45,22 @@
 (setq-default fci-rule-column 80)
 (setq-default fci-rule-use-dashes nil)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
+
+;; Web-mode configurations
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;; Use for jekyll
+(setq web-mode-engines-alist
+      '(("liquid"    . "\\.html\\'"))
+)
 
 ;; Go configurations...
 (require 'go-eldoc) ;; Don't need to require, if you install by package.el
