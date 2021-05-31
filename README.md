@@ -44,7 +44,7 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 
 ## OSX Specific Notes
 
-### The standard OSX Emacs is old and broken
+#### The standard OSX Emacs is old and broken
 Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protect you from yourself.  You will need to be aware of a few things to get this working with OSX emacs.
 * OSX Pre-installed Emacs is an ancient version 22.2.  This will not do (or even work... it actually will not work).
 * OSX Does not support a version of Emacs newer than 22.2 for unknown reasons, but we assume it's related to CopyLeft license used in newer version of Emacs.
@@ -54,14 +54,14 @@ Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protec
     * Don't forget to `brew link emacs`!
         * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
 
-### The incredibly useful options key is, at first, useless.
+#### The incredibly useful options key is, at first, useless.
 It's entirely possible Apple actively hates emacs.  It turns out several pre-configured "macros" in OSX make using emacs in the terminal much harder than it would otherwise need to be.  You will want to enable the meta key to be available in the terminal.  While there are [several solutions](https://www.emacswiki.org/emacs/MetaKeyProblems#h5o-15) I prefer to simply have the option key available in terminal.  You can enable this by, while in Terminal, going to Prefernces -> Keyboard -> Use Option as Meta Key.
 
 ![Terminal Preferences](https://github.com/kraftykai/emacs-config/blob/master/assets/preferences.png?raw=true)
 
 ![Options as Meta](https://github.com/kraftykai/emacs-config/blob/master/assets/optionsasmeta.png?raw=true)
 
-### Marking (selecting text) must be fixed as well
+#### Marking (selecting text) must be fixed as well
 Apple definitely hates emacs.  It turns out ctrl-space, which is used to `mark` text in emacs and is, consequently, one of the more frequently used key combinations.  Again, you can always customize **just for OSX** but I believe strongly in standardization and normalization.  As such, I'd prefer for `mark` to work as intended.  This can be fixed as well with the steps below.
 
 1. Navigate to shortcuts.
