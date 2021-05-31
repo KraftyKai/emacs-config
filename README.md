@@ -51,3 +51,9 @@ Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protec
     * Install Emacs with `brew install emacs`
     * Don't forget to `brew link emacs`!
         * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
+
+## A Note on markdown-mode
+Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.
+
+## Initial emacs load may fail
+For reasons still unknown emacs fails on first load.  I'll try to capture the details in a future bug/issue.  For now, know to expect it, and know that closing emacs and starting `emacs` again reliably fixes this issue, and everything will work in both linux and osx.  Use Windows at your own peril!
