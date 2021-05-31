@@ -75,13 +75,13 @@ Apple definitely hates emacs.  It turns out ctrl-space, which is used to `mark` 
 **Note** **Do not** remove the second keyboard that was added in step 3 above.  When doing so OSX will behind the scenes re-enable the shortcut, and set it to a no-op, effectively destroying your `mark`ing ability in emacs for no gain what so ever.  Yay for Apple!
 
 (What the end result should look like)
-![Input Sources Fix](https://github.com/kraftykai/emacs-config/assets/inputsources.png?raw=true)
+![Input Sources Fix](https://github.com/kraftykai/emacs-config/blob/master/assets/inputsources.png?raw=true)
 
 ### Terminal Preferences
-![Terminal Preferences](https://github.com/kraftykai/emacs-config/assets/preferences.png?raw=true)
+![Terminal Preferences](https://github.com/kraftykai/emacs-config/blob/master/assets/preferences.png?raw=true)
 
 ### Keyboard -> Use Option as Meta Key
-![Options as Meta](https://github.com/kraftykai/emacs-config/assets/optionsasmeta.png?raw=true)
+![Options as Meta](https://github.com/kraftykai/emacs-config/blob/master/assets/optionsasmeta.png?raw=true)
 
 ## A Note on markdown-mode
 Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.
