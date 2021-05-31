@@ -43,6 +43,8 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
     * See [the docs](https://github.com/stamblerre/gocode) for details and updates in case things break.
 
 ## OSX Specific Notes
+
+### The standard OSX Emacs is old and broken
 Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protect you from yourself.  You will need to be aware of a few things to get this working with OSX emacs.
 * OSX Pre-installed Emacs is an ancient version 22.2.  This will not do (or even work... it actually will not work).
 * OSX Does not support a version of Emacs newer than 22.2 for unknown reasons, but we assume it's related to CopyLeft license used in newer version of Emacs.
@@ -51,8 +53,29 @@ Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protec
     * Install Emacs with `brew install emacs`
     * Don't forget to `brew link emacs`!
         * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
-		
+
+### The incredibly useful options key is, at first, useless.
 It's entirely possible Apple actively hates emacs.  It turns out several pre-configured "macros" in OSX make using emacs in the terminal much harder than it would otherwise need to be.  You will want to enable the meta key to be available in the terminal.  While there are [several solutions](https://www.emacswiki.org/emacs/MetaKeyProblems#h5o-15) I prefer to simply have the option key available in terminal.  You can enable this by, while in Terminal, going to Prefernces -> Keyboard -> Use Option as Meta Key.
+
+### Marking (selecting text) must be fixed as well
+Apple definitely hates emacs.  It turns out ctrl-space, which is used to `mark` text in emacs and is, consequently, one of the more frequently used key combinations.  Again, you can always customize **just for OSX** but I believe strongly in standardization and normalization.  As such, I'd prefer for `mark` to work as intended.  This can be fixed as well with the steps below.
+
+1. Navigate to shortcuts.
+    * System Preferences -> Keyboards -> Shortcuts.
+2. Make note of the column on the left.  Is **Input Sources** an option?
+    * If not, you have the expected result.  Continue with the next step.
+	* If so, skip the next step.
+3. Since `Input Sources` is not an option for shortcuts, let's make it one!
+    1. Click on the `Input Sources` tab in the navigation menu from the above example.
+	1. Click the `+` symbol to add one additional language.
+	    * I added `US International - PC`, but really any random keyboard will do.  We are working around Apple stupidness after all, so reason is optional :)
+	1. Navigate back to the `Shorcuts` tab.  `Input Sources` should now, in fact, appears in the left menu.
+4. Make sure `Select the previous input source` is not checked under the right menu when `Input Sources` is selected in the left menu
+
+**Note** **Do not** remove the second keyboard that was added in step 3 above.  When doing so OSX will behind the scenes re-enable the shortcut, and set it to a no-op, effectively destroying your `mark`ing ability in emacs for no gain what so ever.  Yay for Apple!
+
+(What the end result should look like)
+![Input Sources Fix](https://github.com/kraftykai/emacs-config/assets/inputsources.png?raw=true)
 
 ### Terminal Preferences
 ![Terminal Preferences](https://github.com/kraftykai/emacs-config/assets/preferences.png?raw=true)
