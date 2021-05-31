@@ -51,6 +51,14 @@ Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protec
     * Install Emacs with `brew install emacs`
     * Don't forget to `brew link emacs`!
         * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
+		
+It's entirely possible Apple actively hates emacs.  It turns out several pre-configured "macros" in OSX make using emacs in the terminal much harder than it would otherwise need to be.  You will want to enable the meta key to be available in the terminal.  While there are [several solutions](https://www.emacswiki.org/emacs/MetaKeyProblems#h5o-15) I prefer to simply have the option key available in terminal.  You can enable this by, while in Terminal, going to Prefernces -> Keyboard -> Use Option as Meta Key.
+
+### Terminal Preferences
+![Terminal Preferences](https://github.com/kraftykai/emacs-config/assets/preferences.png?raw=true)
+
+### Keyboard -> Use Option as Meta Key
+![Options as Meta](https://github.com/kraftykai/emacs-config/assets/optionsasmeta.png?raw=true)
 
 ## A Note on markdown-mode
 Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.
