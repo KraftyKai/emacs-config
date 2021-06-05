@@ -83,6 +83,7 @@
 
 
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook '(lambda ()
 			       (setq python-indent 2)))
 
