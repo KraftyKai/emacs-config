@@ -79,6 +79,8 @@
 (package-install 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+(add-hook `c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++20")))
+(add-hook `c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++20")))
 
 
 
