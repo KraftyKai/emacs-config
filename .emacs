@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode org plantuml-mode flycheck-plantuml))
 
 (package-initialize)
 (unless package-archive-contents
@@ -98,6 +98,19 @@
     (hs-show-block)))
 
 (add-hook 'hs-minor-mode-hook '(lambda () (hs-hide-all)))
+
+
+;; Org mode et el configurations
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq plantuml-jar-path "/Users/kai/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
+
+(with-eval-after-load 'flycheck
+  (require 'flycheck-plantuml)
+  (flycheck-plantuml-setup))
 
 ;;; .emacs ends here
 (custom-set-faces

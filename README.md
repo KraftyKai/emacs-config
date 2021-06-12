@@ -12,6 +12,8 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 * Flycheck for python (and other file) linting
 * ECB to extend the emacs window to provide some useful tools for surfing directories (kind of like you'd see in vim)
 * hs-minor-mode (HideShow) to allow for cold folding in emacs.
+* org mode
+* plantuml
 
 ## Basic Flycheck useage instructions
 * `C-c ! l` - See flycheck errors
@@ -30,6 +32,13 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 * `C-c @ C-M-h` - Hide all top-level blocks (hs-hide-all)
 * `C-c @ C-M-s` - Show all blocks in the buffer (hs-show-all)
 * `C-c @ C-l` - Hide all blocks n levels below this block (hs-hide-level)
+
+## Notes on Org Mode and Plantuml
+You should have no trouble with org-mode without any further system support issues needed.  However, to bet `plantuml` working properly with org mode you will also need to install:
+* Java (JRE)
+* graphviz
+
+While it's nice to have these installed and working, emacs will work fine if these dependencies are not installed so long as you don't try to generate a graphical preview of diagrams.
 
 ## Golang specific details
 * [go-mode](https://github.com/dominikh/go-mode.el) is included, see link for instructions
