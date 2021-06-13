@@ -37,6 +37,9 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 You should have no trouble with org-mode without any further system support issues needed.  However, to bet `plantuml` working properly with org mode you will also need to install:
 * Java (JRE)
 * graphviz
+* imagemagick
+* librsvg2 and librsvg2-devel
+    * `librsvg` if you are using homebrew/OSX
 
 While it's nice to have these installed and working, emacs will work fine if these dependencies are not installed so long as you don't try to generate a graphical preview of diagrams.
 
@@ -62,6 +65,15 @@ Apple likes to wrap us user's in proprietary bubble wrap and duct tape to protec
     * Install Emacs with `brew install emacs`
     * Don't forget to `brew link emacs`!
         * You can verify this worked with `emacs --version`.  It should now be a version newer than 22.2!
+	* Alternatively, you might like the newer GUI version of emacs from homebrew.
+	    * The `with-cocoa` switch will please you in this case.
+
+### OSX Emacs GUI Quirks
+There's a few GUI Emacs-specific quirks that exist at least in OSX.  While I typically am happy with just terminal emacs, the additional image functionality provided by the GUI version of emacs can be incredibly empowering.
+
+* It's possible this quirk extends beyond osx emacs, but when using osx emacs `--with-coca` the initialization file does not load as intended on initial start of emacs.  As such, you will need to manually re-load the emacs file with `M-x load-file` to experience full functionality.  Not doing so will result in weirdness.  Again, this **only** applies to emacs in gui mode.  Terminal emacs will run just fine.
+
+* Plese note that I have **disabled mouse funcionality** in GUI emacs (in terminal it wouldn't exist anyway).  This is in order to offer a consistent experience.
 
 #### The incredibly useful options key is, at first, useless.
 It's entirely possible Apple actively hates emacs.  It turns out several pre-configured "macros" in OSX make using emacs in the terminal much harder than it would otherwise need to be.  You will want to enable the meta key to be available in the terminal.  While there are [several solutions](https://www.emacswiki.org/emacs/MetaKeyProblems#h5o-15) I prefer to simply have the option key available in terminal.  You can enable this by, while in Terminal, going to Prefernces -> Keyboard -> Use Option as Meta Key.
@@ -91,7 +103,8 @@ Apple definitely hates emacs.  It turns out ctrl-space, which is used to `mark` 
 ![Input Sources Fix](https://github.com/kraftykai/emacs-config/blob/master/assets/inputsources.png?raw=true)
 
 ## A Note on markdown-mode
-Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.
+Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.  Refreshing package contents is a healthy habit in general.
+
 
 ## Initial emacs load may fail
 For reasons still unknown emacs fails on first load.  I'll try to capture the details in a future bug/issue.  For now, know to expect it, and know that closing emacs and starting `emacs` again reliably fixes this issue, and everything will work in both linux and osx.  Use Windows at your own peril!

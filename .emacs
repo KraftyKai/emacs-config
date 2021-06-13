@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode org plantuml-mode flycheck-plantuml))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode org plantuml-mode flycheck-plantuml w3m disable-mouse))
 
 (package-initialize)
 (unless package-archive-contents
@@ -107,10 +107,26 @@
 
 (setq plantuml-jar-path "/Users/kai/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
+(setq org-plantuml-jar-path "/Users/kai/plantuml.jar")
+
+(with-eval-after-load "org"
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml)))
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages '((ruby . t)
+							   (plantuml . t)
+							   (python . t)
+							   (shell . t)
+							   )))
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
   (flycheck-plantuml-setup))
+
+(require 'w3m-load)
+
+;; Disable mouse when using gui emacs...
+(global-disable-mouse-mode)
 
 ;;; .emacs ends here
 (custom-set-faces
