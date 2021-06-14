@@ -128,6 +128,10 @@
 ;; Disable mouse when using gui emacs...
 (global-disable-mouse-mode)
 
+;; Don't tab on enter (can be especially painful with org mode...)
+(when
+    (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
 ;;; .emacs ends here
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
