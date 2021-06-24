@@ -7,7 +7,7 @@
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
-(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode org plantuml-mode flycheck-plantuml w3m disable-mouse))
+(setq package-list '(flycheck flycheck-pyflakes cedet ecb fill-column-indicator go-mode go-eldoc auto-complete go-autocomplete polymode web-mode markdown-mode org plantuml-mode flycheck-plantuml w3m disable-mouse magit))
 
 (package-initialize)
 (unless package-archive-contents
@@ -109,28 +109,30 @@
 (setq plantuml-default-exec-mode 'jar)
 (setq org-plantuml-jar-path "/Users/kai/plantuml.jar")
 
-(with-eval-after-load "org"
-  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml)))
+;; Set org-mode to use python3 instead of just python
+(setq org-babel-python-command "python3")
+
+;; Be unsafe, don't warn me before executing blocks :)
+(setq org-confirm-babel-evaluate nil)
 
 (with-eval-after-load 'org
   (org-babel-do-load-languages 'org-babel-load-languages '((ruby . t)
 							   (plantuml . t)
 							   (python . t)
 							   (shell . t)
-							   )))
+							   ))
+  (setq org-startup-indented t)
+  (setq org-agenda-files (list "~/org/cpo.org"
+                               "~/org/framework.org"
+                               "~/org/admin.org"))
+)
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
   (flycheck-plantuml-setup))
 
-(require 'w3m-load)
-
 ;; Disable mouse when using gui emacs...
 (global-disable-mouse-mode)
-
-;; Don't tab on enter (can be especially painful with org mode...)
-(when
-    (fboundp 'electric-indent-mode) (electric-indent-mode -1))
 
 ;;; .emacs ends here
 (custom-set-faces
