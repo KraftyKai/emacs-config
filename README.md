@@ -7,6 +7,7 @@ Basic emacs configurations for software developments.  Installing the `.emacs` a
 ## Notes
 * I tend to use 2 space indent, even for python (in absolute defiance of pep8!).  If using 2 space indents for python the included `.pylintrc` file should be included in the home directory.  If you're a total conformist then do not include `.pylintrc` and also edit `.emacs` to suit your indentive conformity needs.
 * You need to edit the `.emacs` file to be updated with your home location in order for `ecb` to work properly.  Additionally you may need to find the location of `ecb.el` if you notice that ecb is not working.  (This is roughly in code line 17)
+* You will want to copy the included `.emacs`, `.pylintrc` and `.zshrc` into your home directory, or add the contents of the ones included here into your already existing version thereof.
 
 ## What's Included
 * Flycheck for python (and other file) linting
@@ -101,6 +102,9 @@ Apple definitely hates emacs.  It turns out ctrl-space, which is used to `mark` 
 
 (What the end result should look like)
 ![Input Sources Fix](https://github.com/kraftykai/emacs-config/blob/master/assets/inputsources.png?raw=true)
+
+#### Apple's new zshell also hates emacs!
+You might find that characters appear weird if you forgot to add the included `.zshrc` to your shell.  Of course, if you already have a highly configured `~/.zshrc` file you will want to pull all the bits except the $PATH component out of the zshrc file included in this repository.
 
 ## A Note on markdown-mode
 Markdown-mode may have issues.  You will know this as emacs will give specific errors related to markdown mode.  Running `M-x package-refresh-contents` appears to fix this problem.  Refreshing package contents is a healthy habit in general.
